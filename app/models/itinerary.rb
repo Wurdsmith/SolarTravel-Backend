@@ -1,3 +1,3 @@
 class Itinerary < ApplicationRecord
-    has_many :destinations
+has_many :destinations
 end

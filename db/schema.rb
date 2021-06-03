@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_010412) do
+ActiveRecord::Schema.define(version: 2021_06_03_111854) do
 
   create_table "destinations", force: :cascade do |t|
     t.string "name"
     t.integer "distance"
     t.integer "gravity"
     t.integer "temperature"
-    t.string "object_type"
+    t.string "type"
     t.string "image_url"
+    t.string "object_type"
     t.integer "itinerary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

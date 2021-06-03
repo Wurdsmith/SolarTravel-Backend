@@ -1,4 +1,3 @@
-class ItineraryuSerializer < ActiveModel::Serializer
-    attributes :id, :name
-    has_many :destinations
-  end
+class ItinerarySerializer < ActiveModel::Serializer
+  attributes :id
+end

@@ -8,5 +8,5 @@ class ItinerariesController < ApplicationController
         itinerary = Itinerary.find_by(id: params[:id])
         render(json: itinerary)
     end
-
+    
 end

@@ -8,5 +8,5 @@ class DestinationsController < ApplicationController
         destination = Destination.find_by(id: params[:id])
         render(json: destination)
     end
-
+    
 end
