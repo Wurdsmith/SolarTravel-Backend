@@ -2,16 +2,18 @@
 
 one:
   name: MyString
-  distance: MyString
-  gravity: MyString
-  temperature: MyString
+  distance: 1
+  gravity: 1
+  temperature: 1
   type: 
   image_url: MyString
+  itinerary: one
 
 two:
   name: MyString
-  distance: MyString
-  gravity: MyString
-  temperature: MyString
+  distance: 1
+  gravity: 1
+  temperature: 1
   type: 
   image_url: MyString
+  itinerary: two
