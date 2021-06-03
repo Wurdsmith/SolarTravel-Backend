@@ -7,7 +7,7 @@ class CreateDestinations < ActiveRecord::Migration[6.1]
       t.integer :temperature
       t.string :object_type
       t.string :image_url
-      #t.belongs_to :itinerary, null: false, foreign_key: true
+      t.belongs_to :itinerary, null: false, foreign_key: true
 
       t.timestamps
     end

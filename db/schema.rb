@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_002107) do
+ActiveRecord::Schema.define(version: 2021_06_03_010412) do
 
   create_table "destinations", force: :cascade do |t|
     t.string "name"
@@ -19,13 +19,17 @@ ActiveRecord::Schema.define(version: 2021_06_03_002107) do
     t.integer "temperature"
     t.string "object_type"
     t.string "image_url"
+    t.integer "itinerary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["itinerary_id"], name: "index_destinations_on_itinerary_id"
   end
 
   create_table "itineraries", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "destinations", "itineraries"
 end
