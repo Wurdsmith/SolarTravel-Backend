@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2021_06_03_111854) do
     t.integer "distance"
     t.integer "gravity"
     t.integer "temperature"
-    t.string "type"
     t.string "image_url"
     t.string "object_type"
     t.integer "itinerary_id", null: false

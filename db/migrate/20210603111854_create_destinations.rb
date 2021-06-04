@@ -5,7 +5,6 @@ class CreateDestinations < ActiveRecord::Migration[6.1]
       t.integer :distance
       t.integer :gravity
       t.integer :temperature
-      t.string :type
       t.string :image_url
       t.string :object_type
       t.belongs_to :itinerary, null: false, foreign_key: true
