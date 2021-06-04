@@ -10,14 +10,21 @@ class DestinationsController < ApplicationController
     end
     
     def create
-        binding.pry
-        application = Destination.create(application_params)
+        application = Destination.create(destination_params)
         render(json: application)
+    end
+
+    def destroy
+        binding.pry
+        destination = Destination.find_by(id: params[:id])
+        destination.destroy
+        render(json: destination)
+        
     end
 
     private
 
-    def application_params
+    def destination_params
         params.require(:destination).permit(:name, :distance, :gravity, :temperature, :object_type, :image_url, :itinerary_id)
     end
 end
