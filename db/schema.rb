@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_06_03_111854) do
 
   create_table "destinations", force: :cascade do |t|
     t.string "name"
-    t.integer "distance"
-    t.integer "gravity"
+    t.float "distance"
+    t.float "gravity"
     t.integer "temperature"
     t.string "image_url"
     t.string "object_type"

@@ -11867,3 +11867,589 @@ Started GET "/favicon.ico" for 127.0.0.1 at 2021-06-04 08:17:44 -0500
   
 ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:27:32 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:27:32 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItinerariesController#show as */*
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (11.77ms)
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+Completed 200 OK in 27ms (Views: 18.3ms | ActiveRecord: 0.9ms | Allocations: 24498)
+
+
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (2.12ms)
+Completed 200 OK in 23ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 20977)
+
+
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:28:13 -0500
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:28:13 -0500
+Processing by ItinerariesController#show as */*
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"2"}
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (2.62ms)
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.03ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 7544)
+
+
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.2ms | Allocations: 7473)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:28:59 -0500
+Processing by ItinerariesController#show as */*
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:28:59 -0500
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.2ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+Processing by ItinerariesController#show as */*
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  Parameters: {"id"=>"2"}
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.35ms)
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.5ms | Allocations: 6387)
+
+
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.58ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 1805)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:29:58 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:29:58 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+Processing by ItinerariesController#show as */*
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  Parameters: {"id"=>"2"}
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.21ms)
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.2ms | Allocations: 6385)
+
+
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.46ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1805)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:31:13 -0500
+Processing by ItinerariesController#show as */*
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:31:13 -0500
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+Processing by ItinerariesController#show as */*
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  Parameters: {"id"=>"2"}
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (7.99ms)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.3ms | Allocations: 6366)
+
+
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.67ms)
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 1813)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:31:14 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:31:14 -0500
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (4.77ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.2ms | Allocations: 6271)
+
+
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.3ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (2.1ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1514)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:41:38 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.37ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.6ms | Allocations: 6523)
+
+
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:41:38 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.41ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1514)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDestinations (20210603111854)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "destinations"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210603111854"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItineraries (20210603111736)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "itineraries"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210603111736"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItineraries (20210603111736)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "itineraries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603111736"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDestinations (20210603111854)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "distance" float, "gravity" float, "temperature" integer, "image_url" varchar, "object_type" varchar, "itinerary_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c7134f3be6"
+FOREIGN KEY ("itinerary_id")
+  REFERENCES "itineraries" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_destinations_on_itinerary_id" ON "destinations" ("itinerary_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603111854"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Create (0.2ms)[0m  [1m[32mINSERT INTO "itineraries" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "All Destinations"], ["created_at", "2021-06-04 13:43:07.092426"], ["updated_at", "2021-06-04 13:43:07.092426"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Create (0.1ms)[0m  [1m[32mINSERT INTO "itineraries" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Custom Destinations"], ["created_at", "2021-06-04 13:43:07.098831"], ["updated_at", "2021-06-04 13:43:07.098831"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "The Sun"], ["distance", 93.0], ["gravity", 27.94], ["temperature", 5505], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/1280px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg"], ["object_type", "star"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.111108"], ["updated_at", "2021-06-04 13:43:07.111108"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jupiter"], ["distance", 443.0], ["gravity", 2.48], ["temperature", -108], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg"], ["object_type", "planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.116908"], ["updated_at", "2021-06-04 13:43:07.116908"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Saturn"], ["distance", 876.0], ["gravity", 1.07], ["temperature", -178], ["image_url", "https://space-facts.com/wp-content/uploads/saturn.png"], ["object_type", "planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.123027"], ["updated_at", "2021-06-04 13:43:07.123027"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Uranus"], ["distance", 1917.0], ["gravity", 0.89], ["temperature", -197], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/1280px-Uranus2.jpg"], ["object_type", "planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.128939"], ["updated_at", "2021-06-04 13:43:07.128939"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Neptune"], ["distance", 2797.0], ["gravity", 1.14], ["temperature", -201], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg"], ["object_type", "planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.134836"], ["updated_at", "2021-06-04 13:43:07.134836"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Earth"], ["distance", 0.0], ["gravity", 1.0], ["temperature", 14], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg"], ["object_type", "planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.140455"], ["updated_at", "2021-06-04 13:43:07.140455"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Venus"], ["distance", 150.0], ["gravity", 0.91], ["temperature", 463], ["image_url", "https://static01.nyt.com/images/2020/09/14/science/14SCI-VENUS1-alt/14SCI-VENUS1-alt-superJumbo.jpg?quality=90&auto=webp"], ["object_type", "planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.146248"], ["updated_at", "2021-06-04 13:43:07.146248"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.2ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mars"], ["distance", 211.0], ["gravity", 0.38], ["temperature", -63], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1280px-OSIRIS_Mars_true_color.jpg"], ["object_type", "planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.152691"], ["updated_at", "2021-06-04 13:43:07.152691"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ganymede"], ["distance", 390.0], ["gravity", 0.15], ["temperature", -163], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/f/f2/Ganymede_g1_true-edit1.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.167174"], ["updated_at", "2021-06-04 13:43:07.167174"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Titan"], ["distance", 875.0], ["gravity", 0.14], ["temperature", -179], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/4/45/Titan_in_true_color.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.172853"], ["updated_at", "2021-06-04 13:43:07.172853"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mercury"], ["distance", 55.0], ["gravity", 0.38], ["temperature", 67], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg/1280px-Mercury_in_color_-_Prockter07-edit1.jpg"], ["object_type", "planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.179432"], ["updated_at", "2021-06-04 13:43:07.179432"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Callisto"], ["distance", 390.0], ["gravity", 0.13], ["temperature", -133], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e9/Callisto.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.188003"], ["updated_at", "2021-06-04 13:43:07.188003"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Io"], ["distance", 390.0], ["gravity", 0.18], ["temperature", -163], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Io_highest_resolution_true_color.jpg/1280px-Io_highest_resolution_true_color.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.194925"], ["updated_at", "2021-06-04 13:43:07.194925"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "The Moon"], ["distance", 0.24], ["gravity", 0.17], ["temperature", -23], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/1280px-FullMoon2010.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.202189"], ["updated_at", "2021-06-04 13:43:07.202189"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Europa"], ["distance", 390.0], ["gravity", 0.08], ["temperature", -235], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e4/Europa-moon-with-margins.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.209984"], ["updated_at", "2021-06-04 13:43:07.209984"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Triton"], ["distance", 2696.0], ["gravity", 0.06], ["temperature", -229], ["image_url", "https://cdn.mos.cms.futurecdn.net/gHndiSzvfgzFCzbnq2LTJS-970-80.jpg.webp"], ["object_type", "dwarf planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.216656"], ["updated_at", "2021-06-04 13:43:07.216656"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Pluto"], ["distance", 3119.0], ["gravity", 0.06], ["temperature", -229], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Pluto_in_True_Color_-_High-Res.jpg/1280px-Pluto_in_True_Color_-_High-Res.jpg"], ["object_type", "dwarf planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.223090"], ["updated_at", "2021-06-04 13:43:07.223090"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Eris"], ["distance", 8978.0], ["gravity", 0.08], ["temperature", -231], ["image_url", "https://media.istockphoto.com/photos/eris-dwarf-planet-rotating-in-its-own-orbit-in-the-outer-space-3d-picture-id1044815536?k=6&m=1044815536&s=170667a&w=0&h=dikKSSbr6Rf3Xu2_ImIsFAXeKjApfJASHDdzpBwsIrw="], ["object_type", "dwarf planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.229304"], ["updated_at", "2021-06-04 13:43:07.229304"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Titania"], ["distance", 1692.0], ["gravity", 0.04], ["temperature", -198], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/a/ac/Titania_%28moon%29_color%2C_cropped.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.235983"], ["updated_at", "2021-06-04 13:43:07.235983"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Rhea"], ["distance", 790.1], ["gravity", 0.03], ["temperature", -200], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/PIA07763_Rhea_full_globe5.jpg/1280px-PIA07763_Rhea_full_globe5.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.242457"], ["updated_at", "2021-06-04 13:43:07.242457"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.2ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Charon"], ["distance", 3119.0], ["gravity", 0.03], ["temperature", -220], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Charon_in_True_Color_-_High-Res.jpg/1280px-Charon_in_True_Color_-_High-Res.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.250057"], ["updated_at", "2021-06-04 13:43:07.250057"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tethys"], ["distance", 790.1], ["gravity", 0.015], ["temperature", -187], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/b/bc/PIA18317-SaturnMoon-Tethys-Cassini-20150411.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.257149"], ["updated_at", "2021-06-04 13:43:07.257149"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ceres"], ["distance", 257.0], ["gravity", 0.03], ["temperature", -87], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/7/76/Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29_%28cropped%29.jpg"], ["object_type", "dwarf planet"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.263435"], ["updated_at", "2021-06-04 13:43:07.263435"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Enceladus"], ["distance", 790.1], ["gravity", 0.011], ["temperature", -198], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Enceladusstripes_cassini.jpg/1280px-Enceladusstripes_cassini.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.272015"], ["updated_at", "2021-06-04 13:43:07.272015"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mimas"], ["distance", 790.1], ["gravity", 0.006], ["temperature", -209], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Mimas_Cassini.jpg/1280px-Mimas_Cassini.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.279251"], ["updated_at", "2021-06-04 13:43:07.279251"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Hyperion"], ["distance", 790.1], ["gravity", 0.002], ["temperature", -180], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Hyperion_true.jpg/1280px-Hyperion_true.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.285631"], ["updated_at", "2021-06-04 13:43:07.285631"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Phobos"], ["distance", 48.34], ["gravity", 0.0006], ["temperature", -180], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Phobos_colour_2008.jpg/1920px-Phobos_colour_2008.jpg"], ["object_type", "moon"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.300168"], ["updated_at", "2021-06-04 13:43:07.300168"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Eros"], ["distance", 196.0], ["gravity", 0.0006], ["temperature", -25], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e5/Eros_-_PIA02923_%28color%29.jpg"], ["object_type", "asteroid"], ["itinerary_id", 1], ["created_at", "2021-06-04 13:43:07.307103"], ["updated_at", "2021-06-04 13:43:07.307103"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:43:15 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:43:15 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItinerariesController#show as */*
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"2"}
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.0ms)
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+Completed 200 OK in 20ms (Views: 12.0ms | ActiveRecord: 0.8ms | Allocations: 14672)
+
+
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (9.09ms)
+Completed 200 OK in 24ms (Views: 9.1ms | ActiveRecord: 0.5ms | Allocations: 21065)
+
+
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:44:51 -0500
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:44:51 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"2"}
+Processing by ItinerariesController#show as */*
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Parameters: {"id"=>"1"}
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (3.41ms)
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.2ms | Allocations: 3121)
+
+
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.54ms)
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 0.3ms | Allocations: 7462)
+
+
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:48:30 -0500
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:48:30 -0500
+Processing by ItinerariesController#show as */*
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.14ms)
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (4.41ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 7595)
+
+
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.1ms | Allocations: 7534)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:53:04 -0500
+Processing by ItinerariesController#show as */*
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:53:04 -0500
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+Processing by ItinerariesController#show as */*
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  Parameters: {"id"=>"2"}
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (4.91ms)
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.3ms | Allocations: 6443)
+
+
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.37ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1805)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:53:41 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:53:41 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by ItinerariesController#show as */*
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  Parameters: {"id"=>"2"}
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.28ms)
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 7084)
+
+
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (2.16ms)
+Completed 200 OK in 7ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 6912)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:55:26 -0500
+Processing by ItinerariesController#show as */*
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:55:26 -0500
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.2ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+Processing by ItinerariesController#show as */*
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  Parameters: {"id"=>"2"}
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.31ms)
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.3ms | Allocations: 6420)
+
+
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.53ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1804)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:55:52 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:55:52 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by ItinerariesController#show as */*
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  Parameters: {"id"=>"2"}
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.38ms)
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.2ms | Allocations: 7086)
+
+
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.89ms)
+Completed 200 OK in 7ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 6913)
+
+
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:58:13 -0500
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:58:13 -0500
+Processing by ItinerariesController#show as */*
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.35ms)
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (4.65ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.2ms | Allocations: 7579)
+
+
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.2ms | Allocations: 7523)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 08:58:47 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-04 08:58:47 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+Processing by ItinerariesController#show as */*
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+  Parameters: {"id"=>"2"}
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.08ms)
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.2ms | Allocations: 6712)
+
+
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.85ms)
+Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 6296)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 09:04:29 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-04 09:04:29 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItinerariesController#show as */*
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.2ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.54ms)
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+Completed 200 OK in 12ms (Views: 6.8ms | ActiveRecord: 0.7ms | Allocations: 8056)
+
+
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (2.05ms)
+Completed 200 OK in 10ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 8258)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-04 09:04:46 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-04 09:04:46 -0500
+Processing by ItinerariesController#show as */*
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (3.1ms)
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (4.93ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.2ms | Allocations: 7461)
+
+
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 0.2ms | Allocations: 7649)
+
+
