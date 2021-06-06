@@ -15,7 +15,6 @@ class DestinationsController < ApplicationController
     end
 
     def destroy
-        binding.pry
         destination = Destination.find_by(id: params[:id])
         destination.destroy
         render(json: destination)
