@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2021_06_03_111854) do
     t.integer "temperature"
     t.string "image_url"
     t.string "object_type"
+    t.string "temperature_class"
+    t.string "gravity_class"
+    t.string "distance_class"
     t.integer "itinerary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

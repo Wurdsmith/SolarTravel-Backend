@@ -31532,3 +31532,868 @@ Completed 200 OK in 39ms (Views: 27.7ms | ActiveRecord: 1.0ms | Allocations: 216
 Completed 200 OK in 36ms (Views: 5.3ms | ActiveRecord: 0.5ms | Allocations: 22522)
 
 
+Started GET "/itineraries/1" for ::1 at 2021-06-14 04:54:47 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-14 04:54:47 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItinerariesController#show as */*
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.4ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.9ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (17.83ms)
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+Completed 200 OK in 43ms (Views: 29.1ms | ActiveRecord: 2.1ms | Allocations: 24629)
+
+
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (3.63ms)
+Completed 200 OK in 37ms (Views: 3.9ms | ActiveRecord: 0.5ms | Allocations: 22523)
+
+
+Started POST "/destinations" for ::1 at 2021-06-14 04:54:50 -0500
+Processing by DestinationsController#create as JSON
+  Parameters: {"destination"=>{"id"=>8, "name"=>"Mars", "distance"=>211, "gravity"=>0.38, "temperature"=>-63, "object_type"=>"Planet", "image_url"=>"https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1280px-OSIRIS_Mars_true_color.jpg", "itinerary_id"=>2}}
+[31mUnpermitted parameter: :id[0m
+[31mUnpermitted parameter: :id[0m
+[31mUnpermitted parameter: :id[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/destinations_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/destinations_controller.rb:14:in `create'
+  [1m[36mItinerary Load (0.2ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/destinations_controller.rb:14:in `create'
+  [1m[36mDestination Create (8.4ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mars"], ["distance", 211.0], ["gravity", 0.38], ["temperature", -63], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1280px-OSIRIS_Mars_true_color.jpg"], ["object_type", "Planet"], ["itinerary_id", 2], ["created_at", "2021-06-14 10:47:56.536034"], ["updated_at", "2021-06-14 10:47:56.536034"]]
+  ↳ app/controllers/destinations_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/destinations_controller.rb:14:in `create'
+[active_model_serializers] Rendered DestinationSerializer with ActiveModelSerializers::Adapter::Attributes (1.72ms)
+Completed 200 OK in 3185683ms (Views: 4.8ms | ActiveRecord: 14.3ms | Allocations: 189146)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDestinations (20210603111854)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "destinations"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210603111854"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItineraries (20210603111736)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "itineraries"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210603111736"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItineraries (20210603111736)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "itineraries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603111736"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDestinations (20210603111854)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "distance" float, "gravity" float, "temperature" integer, "image_url" varchar, "object_type" varchar, "itinerary_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c7134f3be6"
+FOREIGN KEY ("itinerary_id")
+  REFERENCES "itineraries" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_destinations_on_itinerary_id" ON "destinations" ("itinerary_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603111854"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Create (0.2ms)[0m  [1m[32mINSERT INTO "itineraries" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "All Destinations"], ["created_at", "2021-06-14 10:48:50.919696"], ["updated_at", "2021-06-14 10:48:50.919696"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Create (0.2ms)[0m  [1m[32mINSERT INTO "itineraries" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Custom Destinations"], ["created_at", "2021-06-14 10:48:50.925368"], ["updated_at", "2021-06-14 10:48:50.925368"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "The Sun"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/1280px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg"], ["object_type", "Star"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:50.939168"], ["updated_at", "2021-06-14 10:48:50.939168"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jupiter"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg"], ["object_type", "Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:50.945163"], ["updated_at", "2021-06-14 10:48:50.945163"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Saturn"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://space-facts.com/wp-content/uploads/saturn.png"], ["object_type", "Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:50.953100"], ["updated_at", "2021-06-14 10:48:50.953100"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Uranus"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/1280px-Uranus2.jpg"], ["object_type", "Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:50.958916"], ["updated_at", "2021-06-14 10:48:50.958916"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Neptune"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg"], ["object_type", "Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:50.964970"], ["updated_at", "2021-06-14 10:48:50.964970"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Earth"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg"], ["object_type", "Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:50.972447"], ["updated_at", "2021-06-14 10:48:50.972447"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Venus"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://cdn.mos.cms.futurecdn.net/kaPwBjHiUKax8syodHNPmF.jpg"], ["object_type", "Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:50.980540"], ["updated_at", "2021-06-14 10:48:50.980540"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (9.3ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mars"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1280px-OSIRIS_Mars_true_color.jpg"], ["object_type", "Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:50.988242"], ["updated_at", "2021-06-14 10:48:50.988242"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ganymede"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/f/f2/Ganymede_g1_true-edit1.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.003797"], ["updated_at", "2021-06-14 10:48:51.003797"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Titan"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/4/45/Titan_in_true_color.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.009799"], ["updated_at", "2021-06-14 10:48:51.009799"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mercury"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg/1280px-Mercury_in_color_-_Prockter07-edit1.jpg"], ["object_type", "Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.015851"], ["updated_at", "2021-06-14 10:48:51.015851"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Callisto"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e9/Callisto.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.022850"], ["updated_at", "2021-06-14 10:48:51.022850"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Io"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Io_highest_resolution_true_color.jpg/1280px-Io_highest_resolution_true_color.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.029584"], ["updated_at", "2021-06-14 10:48:51.029584"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "The Moon"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/1280px-FullMoon2010.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.036153"], ["updated_at", "2021-06-14 10:48:51.036153"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Europa"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e4/Europa-moon-with-margins.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.044964"], ["updated_at", "2021-06-14 10:48:51.044964"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Triton"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "http://cdn.sci-news.com/images/enlarge6/image_7216e-Triton.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.051461"], ["updated_at", "2021-06-14 10:48:51.051461"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Pluto"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Pluto_in_True_Color_-_High-Res.jpg/1280px-Pluto_in_True_Color_-_High-Res.jpg"], ["object_type", "Dwarf Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.057705"], ["updated_at", "2021-06-14 10:48:51.057705"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Eris"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://i.imgur.com/PcBLExM.jpg"], ["object_type", "Dwarf Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.064080"], ["updated_at", "2021-06-14 10:48:51.064080"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Titania"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/a/ac/Titania_%28moon%29_color%2C_cropped.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.070239"], ["updated_at", "2021-06-14 10:48:51.070239"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Rhea"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/PIA07763_Rhea_full_globe5.jpg/1280px-PIA07763_Rhea_full_globe5.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.076912"], ["updated_at", "2021-06-14 10:48:51.076912"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Charon"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Charon_in_True_Color_-_High-Res.jpg/1280px-Charon_in_True_Color_-_High-Res.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.083141"], ["updated_at", "2021-06-14 10:48:51.083141"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tethys"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/b/bc/PIA18317-SaturnMoon-Tethys-Cassini-20150411.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.089283"], ["updated_at", "2021-06-14 10:48:51.089283"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ceres"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/7/76/Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29_%28cropped%29.jpg"], ["object_type", "Dwarf Planet"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.095784"], ["updated_at", "2021-06-14 10:48:51.095784"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Enceladus"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://i.imgur.com/DJ2pvhC.jpeg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.102033"], ["updated_at", "2021-06-14 10:48:51.102033"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mimas"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Mimas_Cassini.jpg/1280px-Mimas_Cassini.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.108627"], ["updated_at", "2021-06-14 10:48:51.108627"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Hyperion"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Hyperion_true.jpg/1280px-Hyperion_true.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.115674"], ["updated_at", "2021-06-14 10:48:51.115674"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Phobos"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Phobos_colour_2008.jpg/1920px-Phobos_colour_2008.jpg"], ["object_type", "Moon"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.123147"], ["updated_at", "2021-06-14 10:48:51.123147"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Eros"], ["distance", 0.0], ["gravity", 0.0], ["temperature", 0], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e5/Eros_-_PIA02923_%28color%29.jpg"], ["object_type", "Asteroid"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:48:51.129507"], ["updated_at", "2021-06-14 10:48:51.129507"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDestinations (20210603111854)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "destinations"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210603111854"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItineraries (20210603111736)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "itineraries"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210603111736"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItineraries (20210603111736)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "itineraries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603111736"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDestinations (20210603111854)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItineraries (20210603111736)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "itineraries"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210603111736"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItineraries (20210603111736)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "itineraries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603111736"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDestinations (20210603111854)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "distance" float, "gravity" float, "temperature" integer, "image_url" varchar, "object_type" varchar, "temperature_class" varchar, "gravity_class" varchar, "distance_class" varchar, "itinerary_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c7134f3be6"
+FOREIGN KEY ("itinerary_id")
+  REFERENCES "itineraries" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_destinations_on_itinerary_id" ON "destinations" ("itinerary_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603111854"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Create (0.3ms)[0m  [1m[32mINSERT INTO "itineraries" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "All Destinations"], ["created_at", "2021-06-14 10:58:55.217117"], ["updated_at", "2021-06-14 10:58:55.217117"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Create (0.2ms)[0m  [1m[32mINSERT INTO "itineraries" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Custom Destinations"], ["created_at", "2021-06-14 10:58:55.223441"], ["updated_at", "2021-06-14 10:58:55.223441"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "The Sun"], ["distance", 93.0], ["gravity", 27.94], ["temperature", 5505], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/1280px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg"], ["object_type", "Star"], ["temperature_class", "hot"], ["gravity_class", "heavy"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.238381"], ["updated_at", "2021-06-14 10:58:55.238381"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jupiter"], ["distance", 426.0], ["gravity", 2.48], ["temperature", -108], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg"], ["object_type", "Planet"], ["temperature_class", "warm"], ["gravity_class", "heavy"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.244510"], ["updated_at", "2021-06-14 10:58:55.244510"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Saturn"], ["distance", 876.0], ["gravity", 1.07], ["temperature", -178], ["image_url", "https://space-facts.com/wp-content/uploads/saturn.png"], ["object_type", "Planet"], ["temperature_class", "cold"], ["gravity_class", "heavy"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.250369"], ["updated_at", "2021-06-14 10:58:55.250369"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Uranus"], ["distance", 1917.0], ["gravity", 0.89], ["temperature", -197], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/1280px-Uranus2.jpg"], ["object_type", "Planet"], ["temperature_class", "cold"], ["gravity_class", "medium"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.255759"], ["updated_at", "2021-06-14 10:58:55.255759"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Neptune"], ["distance", 2797.0], ["gravity", 1.14], ["temperature", -201], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg"], ["object_type", "Planet"], ["temperature_class", "coldest"], ["gravity_class", "heavy"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.262845"], ["updated_at", "2021-06-14 10:58:55.262845"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Earth"], ["distance", 0.0], ["gravity", 1.0], ["temperature", 14], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg"], ["object_type", "Planet"], ["temperature_class", "warm"], ["gravity_class", "medium"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.268475"], ["updated_at", "2021-06-14 10:58:55.268475"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Venus"], ["distance", 150.0], ["gravity", 0.91], ["temperature", 463], ["image_url", "https://cdn.mos.cms.futurecdn.net/kaPwBjHiUKax8syodHNPmF.jpg"], ["object_type", "Planet"], ["temperature_class", "hot"], ["gravity_class", "medium"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.274188"], ["updated_at", "2021-06-14 10:58:55.274188"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mars"], ["distance", 211.0], ["gravity", 0.38], ["temperature", -63], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1280px-OSIRIS_Mars_true_color.jpg"], ["object_type", "Planet"], ["temperature_class", "warm"], ["gravity_class", "medium"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.288532"], ["updated_at", "2021-06-14 10:58:55.288532"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ganymede"], ["distance", 390.0], ["gravity", 0.15], ["temperature", -163], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/f/f2/Ganymede_g1_true-edit1.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "medium"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.295462"], ["updated_at", "2021-06-14 10:58:55.295462"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Titan"], ["distance", 875.0], ["gravity", 0.14], ["temperature", -179], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/4/45/Titan_in_true_color.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.300843"], ["updated_at", "2021-06-14 10:58:55.300843"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mercury"], ["distance", 55.0], ["gravity", 0.38], ["temperature", 67], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg/1280px-Mercury_in_color_-_Prockter07-edit1.jpg"], ["object_type", "Planet"], ["temperature_class", "hot"], ["gravity_class", "medium"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.306915"], ["updated_at", "2021-06-14 10:58:55.306915"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Callisto"], ["distance", 390.0], ["gravity", 0.13], ["temperature", -133], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e9/Callisto.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.313199"], ["updated_at", "2021-06-14 10:58:55.313199"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Io"], ["distance", 390.0], ["gravity", 0.18], ["temperature", -163], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Io_highest_resolution_true_color.jpg/1280px-Io_highest_resolution_true_color.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "medium"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.318920"], ["updated_at", "2021-06-14 10:58:55.318920"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "The Moon"], ["distance", 0.24], ["gravity", 0.17], ["temperature", -23], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/1280px-FullMoon2010.jpg"], ["object_type", "Moon"], ["temperature_class", "warm"], ["gravity_class", "medium"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.324534"], ["updated_at", "2021-06-14 10:58:55.324534"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Europa"], ["distance", 390.0], ["gravity", 0.13], ["temperature", -171], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e4/Europa-moon-with-margins.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.330653"], ["updated_at", "2021-06-14 10:58:55.330653"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Triton"], ["distance", 2696.0], ["gravity", 0.08], ["temperature", -235], ["image_url", "http://cdn.sci-news.com/images/enlarge6/image_7216e-Triton.jpg"], ["object_type", "Moon"], ["temperature_class", "coldest"], ["gravity_class", "light"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.336660"], ["updated_at", "2021-06-14 10:58:55.336660"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Pluto"], ["distance", 3119.0], ["gravity", 0.06], ["temperature", -229], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Pluto_in_True_Color_-_High-Res.jpg/1280px-Pluto_in_True_Color_-_High-Res.jpg"], ["object_type", "Dwarf Planet"], ["temperature_class", "coldest"], ["gravity_class", "light"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.343237"], ["updated_at", "2021-06-14 10:58:55.343237"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Eris"], ["distance", 8978.0], ["gravity", 0.08], ["temperature", -231], ["image_url", "https://i.imgur.com/PcBLExM.jpg"], ["object_type", "Dwarf Planet"], ["temperature_class", "coldest"], ["gravity_class", "light"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.349301"], ["updated_at", "2021-06-14 10:58:55.349301"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Titania"], ["distance", 1692.0], ["gravity", 0.04], ["temperature", -198], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/a/ac/Titania_%28moon%29_color%2C_cropped.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.355727"], ["updated_at", "2021-06-14 10:58:55.355727"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Rhea"], ["distance", 790.1], ["gravity", 0.03], ["temperature", -200], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/PIA07763_Rhea_full_globe5.jpg/1280px-PIA07763_Rhea_full_globe5.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.361694"], ["updated_at", "2021-06-14 10:58:55.361694"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Charon"], ["distance", 3119.0], ["gravity", 0.03], ["temperature", -220], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Charon_in_True_Color_-_High-Res.jpg/1280px-Charon_in_True_Color_-_High-Res.jpg"], ["object_type", "Moon"], ["temperature_class", "coldest"], ["gravity_class", "light"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.368271"], ["updated_at", "2021-06-14 10:58:55.368271"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tethys"], ["distance", 790.1], ["gravity", 0.015], ["temperature", -187], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/b/bc/PIA18317-SaturnMoon-Tethys-Cassini-20150411.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "lightest"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.374898"], ["updated_at", "2021-06-14 10:58:55.374898"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ceres"], ["distance", 257.0], ["gravity", 0.0], ["temperature", -87], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/7/76/Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29_%28cropped%29.jpg"], ["object_type", "Dwarf Planet"], ["temperature_class", "warm"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.382038"], ["updated_at", "2021-06-14 10:58:55.382038"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Enceladus"], ["distance", 790.1], ["gravity", 0.011], ["temperature", -198], ["image_url", "https://i.imgur.com/DJ2pvhC.jpeg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.388099"], ["updated_at", "2021-06-14 10:58:55.388099"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mimas"], ["distance", 790.1], ["gravity", 0.006], ["temperature", -209], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Mimas_Cassini.jpg/1280px-Mimas_Cassini.jpg"], ["object_type", "Moon"], ["temperature_class", "coldest"], ["gravity_class", "lightest"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.394110"], ["updated_at", "2021-06-14 10:58:55.394110"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Hyperion"], ["distance", 790.1], ["gravity", 0.002], ["temperature", -180], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Hyperion_true.jpg/1280px-Hyperion_true.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "lightest"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.400322"], ["updated_at", "2021-06-14 10:58:55.400322"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Phobos"], ["distance", 48.34], ["gravity", 0.0006], ["temperature", -180], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Phobos_colour_2008.jpg/1920px-Phobos_colour_2008.jpg"], ["object_type", "Moon"], ["temperature_class", "warm"], ["gravity_class", "lightest"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.407725"], ["updated_at", "2021-06-14 10:58:55.407725"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Eros"], ["distance", 196.0], ["gravity", 0.0006], ["temperature", -25], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e5/Eros_-_PIA02923_%28color%29.jpg"], ["object_type", "Asteroid"], ["temperature_class", "warm"], ["gravity_class", "lightest"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:58:55.420827"], ["updated_at", "2021-06-14 10:58:55.420827"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDestinations (20210603111854)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "destinations"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210603111854"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItineraries (20210603111736)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "itineraries"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210603111736"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItineraries (20210603111736)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "itineraries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603111736"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDestinations (20210603111854)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "distance" float, "gravity" float, "temperature" integer, "image_url" varchar, "object_type" varchar, "temperature_class" varchar, "gravity_class" varchar, "distance_class" varchar, "itinerary_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c7134f3be6"
+FOREIGN KEY ("itinerary_id")
+  REFERENCES "itineraries" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_destinations_on_itinerary_id" ON "destinations" ("itinerary_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603111854"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Create (0.1ms)[0m  [1m[32mINSERT INTO "itineraries" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "All Destinations"], ["created_at", "2021-06-14 10:59:41.182489"], ["updated_at", "2021-06-14 10:59:41.182489"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Create (0.1ms)[0m  [1m[32mINSERT INTO "itineraries" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Custom Destinations"], ["created_at", "2021-06-14 10:59:41.187563"], ["updated_at", "2021-06-14 10:59:41.187563"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "The Sun"], ["distance", 93.0], ["gravity", 27.94], ["temperature", 5505], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/1280px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg"], ["object_type", "Star"], ["temperature_class", "hot"], ["gravity_class", "heavy"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.200959"], ["updated_at", "2021-06-14 10:59:41.200959"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jupiter"], ["distance", 426.0], ["gravity", 2.48], ["temperature", -108], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg"], ["object_type", "Planet"], ["temperature_class", "warm"], ["gravity_class", "heavy"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.206899"], ["updated_at", "2021-06-14 10:59:41.206899"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Saturn"], ["distance", 876.0], ["gravity", 1.07], ["temperature", -178], ["image_url", "https://space-facts.com/wp-content/uploads/saturn.png"], ["object_type", "Planet"], ["temperature_class", "cold"], ["gravity_class", "heavy"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.212661"], ["updated_at", "2021-06-14 10:59:41.212661"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Uranus"], ["distance", 1917.0], ["gravity", 0.89], ["temperature", -197], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/1280px-Uranus2.jpg"], ["object_type", "Planet"], ["temperature_class", "cold"], ["gravity_class", "medium"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.218248"], ["updated_at", "2021-06-14 10:59:41.218248"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Neptune"], ["distance", 2797.0], ["gravity", 1.14], ["temperature", -201], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg"], ["object_type", "Planet"], ["temperature_class", "coldest"], ["gravity_class", "heavy"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.223894"], ["updated_at", "2021-06-14 10:59:41.223894"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Earth"], ["distance", 0.0], ["gravity", 1.0], ["temperature", 14], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg"], ["object_type", "Planet"], ["temperature_class", "warm"], ["gravity_class", "medium"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.230063"], ["updated_at", "2021-06-14 10:59:41.230063"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Venus"], ["distance", 150.0], ["gravity", 0.91], ["temperature", 463], ["image_url", "https://cdn.mos.cms.futurecdn.net/kaPwBjHiUKax8syodHNPmF.jpg"], ["object_type", "Planet"], ["temperature_class", "hot"], ["gravity_class", "medium"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.235725"], ["updated_at", "2021-06-14 10:59:41.235725"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mars"], ["distance", 211.0], ["gravity", 0.38], ["temperature", -63], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1280px-OSIRIS_Mars_true_color.jpg"], ["object_type", "Planet"], ["temperature_class", "warm"], ["gravity_class", "medium"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.250094"], ["updated_at", "2021-06-14 10:59:41.250094"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ganymede"], ["distance", 390.0], ["gravity", 0.15], ["temperature", -163], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/f/f2/Ganymede_g1_true-edit1.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "medium"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.256235"], ["updated_at", "2021-06-14 10:59:41.256235"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Titan"], ["distance", 875.0], ["gravity", 0.14], ["temperature", -179], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/4/45/Titan_in_true_color.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.263055"], ["updated_at", "2021-06-14 10:59:41.263055"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mercury"], ["distance", 55.0], ["gravity", 0.38], ["temperature", 67], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg/1280px-Mercury_in_color_-_Prockter07-edit1.jpg"], ["object_type", "Planet"], ["temperature_class", "hot"], ["gravity_class", "medium"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.268774"], ["updated_at", "2021-06-14 10:59:41.268774"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Callisto"], ["distance", 390.0], ["gravity", 0.13], ["temperature", -133], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e9/Callisto.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.274891"], ["updated_at", "2021-06-14 10:59:41.274891"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Io"], ["distance", 390.0], ["gravity", 0.18], ["temperature", -163], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Io_highest_resolution_true_color.jpg/1280px-Io_highest_resolution_true_color.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "medium"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.281404"], ["updated_at", "2021-06-14 10:59:41.281404"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "The Moon"], ["distance", 0.24], ["gravity", 0.17], ["temperature", -23], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/1280px-FullMoon2010.jpg"], ["object_type", "Moon"], ["temperature_class", "warm"], ["gravity_class", "medium"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.287654"], ["updated_at", "2021-06-14 10:59:41.287654"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Europa"], ["distance", 390.0], ["gravity", 0.13], ["temperature", -171], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e4/Europa-moon-with-margins.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.293646"], ["updated_at", "2021-06-14 10:59:41.293646"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Triton"], ["distance", 2696.0], ["gravity", 0.08], ["temperature", -235], ["image_url", "http://cdn.sci-news.com/images/enlarge6/image_7216e-Triton.jpg"], ["object_type", "Moon"], ["temperature_class", "coldest"], ["gravity_class", "light"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.299797"], ["updated_at", "2021-06-14 10:59:41.299797"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Pluto"], ["distance", 3119.0], ["gravity", 0.06], ["temperature", -229], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Pluto_in_True_Color_-_High-Res.jpg/1280px-Pluto_in_True_Color_-_High-Res.jpg"], ["object_type", "Dwarf Planet"], ["temperature_class", "coldest"], ["gravity_class", "light"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.305888"], ["updated_at", "2021-06-14 10:59:41.305888"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Eris"], ["distance", 8978.0], ["gravity", 0.08], ["temperature", -231], ["image_url", "https://i.imgur.com/PcBLExM.jpg"], ["object_type", "Dwarf Planet"], ["temperature_class", "coldest"], ["gravity_class", "light"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.312471"], ["updated_at", "2021-06-14 10:59:41.312471"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Titania"], ["distance", 1692.0], ["gravity", 0.04], ["temperature", -198], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/a/ac/Titania_%28moon%29_color%2C_cropped.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.318807"], ["updated_at", "2021-06-14 10:59:41.318807"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Rhea"], ["distance", 790.1], ["gravity", 0.03], ["temperature", -200], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/PIA07763_Rhea_full_globe5.jpg/1280px-PIA07763_Rhea_full_globe5.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.325282"], ["updated_at", "2021-06-14 10:59:41.325282"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Charon"], ["distance", 3119.0], ["gravity", 0.03], ["temperature", -220], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Charon_in_True_Color_-_High-Res.jpg/1280px-Charon_in_True_Color_-_High-Res.jpg"], ["object_type", "Moon"], ["temperature_class", "coldest"], ["gravity_class", "light"], ["distance_class", "furthest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.331441"], ["updated_at", "2021-06-14 10:59:41.331441"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tethys"], ["distance", 790.1], ["gravity", 0.015], ["temperature", -187], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/b/bc/PIA18317-SaturnMoon-Tethys-Cassini-20150411.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "lightest"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.339080"], ["updated_at", "2021-06-14 10:59:41.339080"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ceres"], ["distance", 257.0], ["gravity", 0.03], ["temperature", -87], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/7/76/Ceres_-_RC3_-_Haulani_Crater_%2822381131691%29_%28cropped%29.jpg"], ["object_type", "Dwarf Planet"], ["temperature_class", "warm"], ["gravity_class", "light"], ["distance_class", "close"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.345225"], ["updated_at", "2021-06-14 10:59:41.345225"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Enceladus"], ["distance", 790.1], ["gravity", 0.011], ["temperature", -198], ["image_url", "https://i.imgur.com/DJ2pvhC.jpeg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "light"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.351744"], ["updated_at", "2021-06-14 10:59:41.351744"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mimas"], ["distance", 790.1], ["gravity", 0.006], ["temperature", -209], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Mimas_Cassini.jpg/1280px-Mimas_Cassini.jpg"], ["object_type", "Moon"], ["temperature_class", "coldest"], ["gravity_class", "lightest"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.357876"], ["updated_at", "2021-06-14 10:59:41.357876"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.0ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.1ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Hyperion"], ["distance", 790.1], ["gravity", 0.002], ["temperature", -180], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Hyperion_true.jpg/1280px-Hyperion_true.jpg"], ["object_type", "Moon"], ["temperature_class", "cold"], ["gravity_class", "lightest"], ["distance_class", "far"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.364242"], ["updated_at", "2021-06-14 10:59:41.364242"]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.8ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Phobos"], ["distance", 48.34], ["gravity", 0.0006], ["temperature", -180], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Phobos_colour_2008.jpg/1920px-Phobos_colour_2008.jpg"], ["object_type", "Moon"], ["temperature_class", "warm"], ["gravity_class", "lightest"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.377750"], ["updated_at", "2021-06-14 10:59:41.377750"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "distance", "gravity", "temperature", "image_url", "object_type", "temperature_class", "gravity_class", "distance_class", "itinerary_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Eros"], ["distance", 196.0], ["gravity", 0.0006], ["temperature", -25], ["image_url", "https://upload.wikimedia.org/wikipedia/commons/e/e5/Eros_-_PIA02923_%28color%29.jpg"], ["object_type", "Asteroid"], ["temperature_class", "warm"], ["gravity_class", "lightest"], ["distance_class", "closest"], ["itinerary_id", 1], ["created_at", "2021-06-14 10:59:41.386959"], ["updated_at", "2021-06-14 10:59:41.386959"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:01:16 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-14 06:01:16 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItinerariesController#show as */*
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (13.12ms)
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+Completed 200 OK in 27ms (Views: 19.3ms | ActiveRecord: 0.9ms | Allocations: 26283)
+
+
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (2.32ms)
+Completed 200 OK in 24ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 22767)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:03:42 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-14 06:03:42 -0500
+Processing by ItinerariesController#show as */*
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  [1m[36mItinerary Load (0.2ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (23.91ms)
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+Completed 200 OK in 34ms (Views: 25.6ms | ActiveRecord: 1.5ms | Allocations: 19067)
+
+
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (2.31ms)
+Completed 200 OK in 34ms (Views: 2.4ms | ActiveRecord: 0.5ms | Allocations: 19071)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:05:17 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/itineraries/2" for ::1 at 2021-06-14 06:05:17 -0500
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.12ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.3ms | Allocations: 6378)
+
+
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (2.41ms)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 1554)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:06:15 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-14 06:06:15 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by ItinerariesController#show as */*
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  Parameters: {"id"=>"2"}
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (6.15ms)
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 7150)
+
+
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (2.84ms)
+Completed 200 OK in 9ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 6903)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:09:47 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (4.04ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.2ms | Allocations: 6164)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:09:48 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (4.81ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.3ms | Allocations: 6354)
+
+
+Started GET "/itineraries/2" for ::1 at 2021-06-14 06:09:48 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.4ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 1514)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:10:45 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.19ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.3ms | Allocations: 6164)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:10:45 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (4.08ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.2ms | Allocations: 6164)
+
+
+Started GET "/itineraries/2" for ::1 at 2021-06-14 06:10:45 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.43ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1514)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:12:26 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (4.3ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.2ms | Allocations: 6164)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:12:26 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (4.95ms)
+Started GET "/itineraries/2" for ::1 at 2021-06-14 06:12:26 -0500
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 6556)
+
+
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.65ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 1514)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:15:14 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-14 06:15:14 -0500
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+Processing by ItinerariesController#show as */*
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+  Parameters: {"id"=>"2"}
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (5.21ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.3ms | Allocations: 6547)
+
+
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  [1m[36mItinerary Load (0.2ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (1.79ms)
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 0.7ms | Allocations: 2296)
+
+
+Started GET "/itineraries/1" for ::1 at 2021-06-14 06:15:36 -0500
+Started GET "/itineraries/2" for ::1 at 2021-06-14 06:15:36 -0500
+Processing by ItinerariesController#show as */*
+Processing by ItinerariesController#show as */*
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"2"}
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mItinerary Load (0.1ms)[0m  [1m[34mSELECT "itineraries".* FROM "itineraries" WHERE "itineraries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+  ↳ app/controllers/itineraries_controller.rb:8:in `show'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 1]]
+[active_model_serializers]   [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."itinerary_id" = ?[0m  [["itinerary_id", 2]]
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (11.03ms)
+[active_model_serializers]   ↳ app/controllers/itineraries_controller.rb:9:in `show'
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.2ms | Allocations: 3050)
+
+
+[active_model_serializers] Rendered ItinerarySerializer with ActiveModelSerializers::Adapter::Attributes (16.06ms)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.3ms | Allocations: 7941)
+
+
