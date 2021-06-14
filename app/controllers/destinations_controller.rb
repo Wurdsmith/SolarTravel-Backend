@@ -21,6 +21,8 @@ class DestinationsController < ApplicationController
         
     end
 
+    
+    
     private
 
     def destination_params
