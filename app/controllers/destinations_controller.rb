@@ -10,6 +10,7 @@ class DestinationsController < ApplicationController
     end
     
     def create
+        binding.pry
         application = Destination.create(destination_params)
         render(json: application)
     end
