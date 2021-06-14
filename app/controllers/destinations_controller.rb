@@ -24,6 +24,6 @@ class DestinationsController < ApplicationController
     private
 
     def destination_params
-        params.require(:destination).permit(:name, :distance, :gravity, :temperature, :object_type, :image_url, :itinerary_id)
+        params.require(:destination).permit(:name, :distance, :gravity, :temperature, :object_type, :image_url, :temperature_class, :gravity_class, :distance_class, :itinerary_id)
     end
 end
